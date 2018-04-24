@@ -1,4 +1,12 @@
 language: cpp
-install: libxml2-dev libboost-dev-all libprotobuf-dev protobuf-compiler doxygen graphviz
+addons:
+  apt:
+    packages:
+    - libxml2-dev
+    - libboost-dev-all
+    - libprotobuf-dev
+    - protobuf-compiler
+    - doxygen
+    - graphviz
 script: cd build && cmake -DPACKAGE=on .. && make test && make package
 
