@@ -10,8 +10,9 @@ addons:
     - doxygen
     - graphviz
 script:
-  - cd build && cmake -DPACKAGE=on ..
-  - cd build && make
-  - cd build && CTEST_OUTPUT_ON_FAILURE=1 make test
-  - cd build && make package
+  - cd build
+  - cmake -DPACKAGE=on ..
+  - make
+  - CTEST_OUTPUT_ON_FAILURE=1 make test
+  - make package
 
