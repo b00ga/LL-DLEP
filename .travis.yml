@@ -3,7 +3,7 @@ addons:
   apt:
     packages:
     - libxml2-dev
-    - libboost-dev-all
+    - libboost-all-dev
     - libprotobuf-dev
     - protobuf-compiler
     - doxygen
