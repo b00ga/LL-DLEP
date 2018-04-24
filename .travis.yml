@@ -1,2 +1,2 @@
 language: cpp
-script: cd dlep/build && cmake ..
+script: cd LL-DLEP/build && cmake -DPACKAGE=on .. && make package
