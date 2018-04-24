@@ -9,5 +9,5 @@ addons:
     - protobuf-compiler
     - doxygen
     - graphviz
-script: cd build && cmake -DPACKAGE=on .. && make test && make package
+script: cd build && cmake -DPACKAGE=on .. && make && make test && make package
 
