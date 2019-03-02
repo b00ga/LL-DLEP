@@ -2,7 +2,6 @@
 file(GLOB DRAFTS_XML RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/protocol/dlep*.xml)
 
 # gather all xml/xsd files
->>>>>>> upstream/master
 file(GLOB XML_INSTALL_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/protocol/*.x[ms][ld])
 
 foreach ( file ${XML_INSTALL_FILES} )
