@@ -78,7 +78,7 @@ DlepInit(DlepClient & dlep_client)
                                                       dlep_client, logger));
         dlep_service = new internal::DlepServiceImpl(dlep_ptr, logger);
     }
-    catch (internal::DlepServiceImpl::InitializationError)
+    catch (internal::DlepServiceImpl::InitializationError&)
     {
         return nullptr;
     }
