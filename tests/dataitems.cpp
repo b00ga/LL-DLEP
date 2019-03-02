@@ -295,7 +295,7 @@ BOOST_AUTO_TEST_CASE(dataitem_u8_string)
         {
             (void)protocfg->get_status_code_name(i);
         }
-        catch (ProtocolConfig::BadStatusCodeId)
+        catch (ProtocolConfig::BadStatusCodeId&)
         {
             expect_valid = false;
         }
