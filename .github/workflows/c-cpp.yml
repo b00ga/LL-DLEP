@@ -16,11 +16,14 @@ jobs:
     - name: Install dependencies
       run: sudo apt-get install -y libboost-all-dev libxml2-dev libxml2-utils libreadline6-dev libprotobuf-dev protobuf-compiler doxygen graphviz
     - name: configure
-      run: cmake ..
+      run: cmake -DPACKAGE=on ..
       working-directory: ./build
     - name: make
       run: make
       working-directory: ./build
     - name: make test
       run: make test
+      working-directory: ./build
+    - name: Create package
+      run: make package
       working-directory: ./build
