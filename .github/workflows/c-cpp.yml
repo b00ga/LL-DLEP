@@ -8,13 +8,16 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: ['ubuntu-latest', 'windows-latest', 'macos-latest']
+    runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v2
-    - name: Install dependencies
+    - name: Install dependencies (Linux)
       run: sudo apt-get install -y libboost-all-dev libxml2-dev libxml2-utils libreadline6-dev libprotobuf-dev protobuf-compiler doxygen graphviz
+      if: matrix.os == 'ubuntu-latest'
     - name: configure
       run: cmake -DPACKAGE=on ..
       working-directory: ./build
