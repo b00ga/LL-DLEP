@@ -32,7 +32,10 @@ jobs:
       working-directory: ./build
     - name: make test
       run: make test
+      env:
+        CTEST_OUTPUT_ON_FAILURE: 1
       working-directory: ./build
+    
     - name: Create package
       run: make package
       working-directory: ./build
