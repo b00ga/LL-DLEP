@@ -20,6 +20,9 @@ jobs:
     - name: Install dependencies (Linux)
       run: sudo apt-get install -y libboost-all-dev libxml2-dev libxml2-utils libreadline6-dev libprotobuf-dev protobuf-compiler doxygen graphviz
       if: matrix.os == 'ubuntu-latest'
+    - name: Install dependencies (macOS)
+      run: sudo brew install protobuf
+      if: matrix.os == 'macos-latest'
     - name: configure
       run: cmake -DPACKAGE=on ..
       working-directory: ./build
