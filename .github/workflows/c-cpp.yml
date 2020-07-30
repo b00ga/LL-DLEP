@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install dependencies
-      run: sudo apt-get install -y libboost-all-dev libxml2-dev lixml2-utils libreadline6-dev libprotobuf-dev protobuf-compiler doxygen graphviz
+      run: sudo apt-get install -y libboost-all-dev libxml2-dev libxml2-utils libreadline6-dev libprotobuf-dev protobuf-compiler doxygen graphviz
     - name: configure
       run: cmake ..
       working-directory: ./build
