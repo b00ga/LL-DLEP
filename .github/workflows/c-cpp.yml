@@ -13,7 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         os: ['ubuntu-latest', 'windows-latest', 'macos-latest']
-        compiler: 'gnu'
+        compiler: ['gnu']
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -22,7 +22,7 @@ jobs:
       run: sudo apt-get install -y libboost-all-dev libxml2-dev libxml2-utils libreadline6-dev libprotobuf-dev protobuf-compiler doxygen graphviz
       if: matrix.os == 'ubuntu-latest'
     - name: Install dependencies (macOS)
-      run: brew install protobuf
+      run: brew install protobuf boost doxygen graphviz
       if: matrix.os == 'macos-latest'
     - name: configure
       run: cmake -DPACKAGE=on ..
