@@ -51,16 +51,14 @@ jobs:
     - uses: actions/checkout@v2
     - name: Debug
       run: |
-        dir C:\MSYS64
-        echo %PATH%
-        x86_64-w64-mingw32-ar --version
+        dir C:\MSYS64\usr\bin
+
     - name: configure
-      run: cmake -DPACKAGE=on -G "MinGW Makefiles" ..
+      run: cmake -DPACKAGE=on -G "Unix Makefiles" ..
       working-directory: ./build
       env:
         CC: x86_64-w64-mingw32-gcc
         CXX: x86_64-w64-mingw32-g++
-        AR: x86_64-w64-mingw32-ar
     - name: make
       run: make
       working-directory: ./build
