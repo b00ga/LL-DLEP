@@ -20,6 +20,9 @@ jobs:
     - name: Install dependencies (Linux)
       run: sudo apt-get install -y libboost-all-dev libxml2-dev libxml2-utils libreadline6-dev libprotobuf-dev protobuf-compiler doxygen graphviz
       if: matrix.os == 'ubuntu-latest'
+    - name: linux debug
+      run: |
+        dpkg -l | grep rpm
     - name: Install dependencies (macOS)
       run: brew install protobuf boost doxygen graphviz
       if: matrix.os == 'macos-latest'
@@ -54,7 +57,7 @@ jobs:
         cmake --version
         dir C:\MSYS64\
         dir C:\MSYS64\mingw64\bin
-        dir c:\msys64\mingw64\x86_64-w64-mingw32
+        dir c:\msys64\mingw64\x86_64-w64-mingw32\bin
         dir C:\MSYS64\usr\bin
 
     - name: configure
@@ -63,6 +66,8 @@ jobs:
       env:
         CC: x86_64-w64-mingw32-gcc
         CXX: x86_64-w64-mingw32-g++
+        AR: ar
+        RANLIB: ranlib
     - name: make
       run: make
       working-directory: ./build
