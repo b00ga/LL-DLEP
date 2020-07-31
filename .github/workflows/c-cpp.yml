@@ -53,7 +53,8 @@ jobs:
       run: |
         cmake --version
         dir C:\MSYS64\
-        dir C:\MSYS64\mingw64
+        dir C:\MSYS64\mingw64\bin
+        dir c:\msys64\mingw64\x86_64-w64-mingw32
         dir C:\MSYS64\usr\bin
 
     - name: configure
