@@ -51,6 +51,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Debug
       run: |
+        cmake --version
         dir C:\MSYS64\
         dir C:\MSYS64\msys64
         dir C:\MSYS64\usr\bin
