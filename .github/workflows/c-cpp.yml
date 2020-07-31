@@ -7,13 +7,12 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  build-unixy:
     strategy:
       max-parallel: 5
       fail-fast: false
       matrix:
-        os: ['ubuntu-latest', 'windows-latest', 'macos-latest']
-        compiler: ['gnu']
+        os: ['ubuntu-latest', 'macos-latest']
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -27,6 +26,35 @@ jobs:
     - name: configure
       run: cmake -DPACKAGE=on ..
       working-directory: ./build
+    - name: make
+      run: make
+      working-directory: ./build
+    - name: make test
+      run: make test
+      env:
+        CTEST_OUTPUT_ON_FAILURE: 1
+      working-directory: ./build
+    
+    - name: Create package
+      run: make package
+      working-directory: ./build
+      
+  build-windows:
+    strategy:
+      max-parallel: 5
+      fail-fast: false
+      matrix:
+        os: ['windows-latest']
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: configure
+      run: cmake -DPACKAGE=on ..
+      working-directory: ./build
+      env:
+        CC: x86_64-w64-mingw32-gcc
+        CXX: x86_64-w64-mingw32-g++
     - name: make
       run: make
       working-directory: ./build
